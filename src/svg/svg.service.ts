@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
-import { resolve } from 'path';
-import { writeFile} from 'fs';
+import * as fs from 'fs';
+import * as path from 'path';
+
+const dbFolder = path.resolve(__dirname, '../../db/');
+const svgFolder = path.resolve(dbFolder, 'svg');
 
 @Injectable()
 export class SvgService {
@@ -11,36 +14,23 @@ export class SvgService {
 
     constructor() {
         this.id = uuidv4();
-        this.createdAt =  Date.now();
+        this.createdAt = Date.now();
         this.originalFilename = `${this.id}_original.svg`;
     }
 
-    async saveOriginal(content: string | Buffer) {
-        const dbFolder = resolve(__dirname, '../../db/');
-        const svgFolder = resolve(dbFolder, 'svg');
-        const path = resolve(svgFolder, this.originalFilename)
+    async saveOriginal(content) {
+        const svgPath = path.resolve(svgFolder, this.originalFilename);
 
-        await writeFile(path, content, 'utf-8', (error) => {
-            console.error(error)
+        await fs.writeFile(svgPath, content, 'utf-8', (error) => {
+            console.error(error);
         });
     }
 
-    // async removeOriginal() {
-    //     await unlinkFileAsync(resolve(svgFolder, this.originalFilename))
-    // }
+    async removeOriginal(svgId) {
+        const svgPath = path.resolve(svgFolder, `${svgId}_original.svg`);
 
-    toPublicJSON() {
-        return {
-            id: this.id,
-            originalUrl: `/files/${this.id}_original.svg`,
-            createdAt: this.createdAt,
-        };
-    }
-
-    toJSON() {
-        return {
-            id: this.id,
-            createdAt: this.createdAt,
-        };
+        await fs.unlink(svgPath, (error) => {
+            console.error(error);
+        });
     }
 }

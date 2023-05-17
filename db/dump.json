@@ -1,16 +1,16 @@
 {
 	"idToSvg": {
-		"15410a65-7923-4419-8293-3fba7b79a912": {
-			"id": "15410a65-7923-4419-8293-3fba7b79a912",
-			"createdAt": 1684247982016
-		},
-		"847a0c29-9f28-4f4c-ba38-022be6a81399": {
-			"id": "847a0c29-9f28-4f4c-ba38-022be6a81399",
-			"createdAt": 1684247989536
-		},
-		"2aed6ed3-9601-4a79-afb7-66c0544c1e0d": {
-			"id": "2aed6ed3-9601-4a79-afb7-66c0544c1e0d",
-			"createdAt": 1684247997327
+		"77089e0a-bd35-4b37-b2ca-a2db5bdef3d9": {
+			"id": "77089e0a-bd35-4b37-b2ca-a2db5bdef3d9",
+			"createdAt": 1684348305367,
+			"originalFilename": "77089e0a-bd35-4b37-b2ca-a2db5bdef3d9_original.svg"
+		}
+	},
+	"likedIds": {
+		"77089e0a-bd35-4b37-b2ca-a2db5bdef3d9": {
+			"id": "77089e0a-bd35-4b37-b2ca-a2db5bdef3d9",
+			"createdAt": 1684348305367,
+			"originalFilename": "77089e0a-bd35-4b37-b2ca-a2db5bdef3d9_original.svg"
 		}
 	}
 }

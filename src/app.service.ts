@@ -1,39 +1,21 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { SvgsService } from './svgs/svgs.service';
 
-const toPublicJSON = (object) => {
-    return Object.values(object)
-        .map((svg: any) => svg)
-        .map(svgObj => {
-            if(svgObj.id) {
-                return {
-                    id: svgObj.id,
-                    originalUrl: `/files/${svgObj.id}_original.svg`,
-                    createdAt: svgObj.createdAt,
-                }
-            }
-        });
-}
-
 @Injectable()
 export class AppService {
 
-  constructor(
-      @Inject(SvgsService)
-      private svgsSevice: SvgsService
-  ) {
-  }
-  getHomePage() {
-    const svgsObject = this.svgsSevice.getAll();
-    const allSvgs = toPublicJSON(svgsObject);
+    constructor(
+        @Inject(SvgsService)
+        private svgsService: SvgsService
+    ) {
+    }
 
-    return { allSvgs };
-  }
+    getHomePage() {
+        return this.svgsService.getAll();
+    }
 
-  async getSvgPage(id: string) {
-      const svgObject = await this.svgsSevice.getById(id);
-      const svg = toPublicJSON(svgObject);
-
-      return { svg }
-  }
+    async getSvgPage(id: string): Promise<any> {
+        const svg = await this.svgsService.getById(id);
+        return { svg };
+    }
 }

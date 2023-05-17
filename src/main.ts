@@ -6,7 +6,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.useStaticAssets(path.join(__dirname, '../static'));
+  app.useStaticAssets(path.join(__dirname, '..', 'static'));
   app.setBaseViewsDir(path.join(__dirname, '..', 'views'));
   app.setViewEngine('pug');
 

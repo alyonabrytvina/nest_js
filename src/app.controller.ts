@@ -12,10 +12,9 @@ export class AppController {
         return this.appService.getHomePage();
     }
 
-    @Get('svgs/:id')
+    @Get('svg/:id')
     @Render('svg')
     getSvg(@Param('id') id: string) {
-        console.error(id, 'id')
         return this.appService.getSvgPage(id);
     }
 }

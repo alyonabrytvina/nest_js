@@ -1,3 +1,5 @@
 export class UpdateSvgDto {
-    readonly name: string;
+    readonly id: string;
+    readonly createdAt: number;
+    readonly originalFileName: string;
 }

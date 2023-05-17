@@ -7,6 +7,7 @@ import { CreateSvgDto } from './dto/create-svg.dto';
 import { SvgsService } from './svgs.service';
 import { SvgService } from '../svg/svg.service';
 import { UpdateSvgDto } from './dto/update-svg.dto';
+import { Svg } from './utils/to-public-json.util';
 
 @Controller('api/svgs')
 export class SvgsController {
@@ -21,7 +22,7 @@ export class SvgsController {
 
 
     @Get(':id')
-    getOne(@Param('id') id: string): Promise<SvgService> {
+    getOne(@Param('id') id: string): Promise<Svg> {
         return this.svgsService.getById(id);
     }
 
@@ -31,17 +32,17 @@ export class SvgsController {
     create(@Body() createProductDto: CreateSvgDto): Promise<SvgService> {
         return this.svgsService.create(createProductDto);
     }
-    //
-    // @Delete(':id')
-    // remove(@Param('id') id: string): Promise<Svg> {
-    //     return this.svgsService.remove(id);
-    // }
-    //
-    // @Put(':id')
-    // update(
-    //     @Body() updateProductDto: UpdateSvgDto,
-    //     @Param('id') id: string
-    // ): Promise<SvgService> {
-    //     // return this.svgsService.update(id);
-    // }
+
+    @Delete(':id')
+    remove(@Param('id') id: string): Promise<SvgService> {
+        return this.svgsService.remove(id);
+    }
+
+    @Put(':id')
+    update(
+        @Body() updateProductDto: UpdateSvgDto,
+        @Param('id') id: string
+    ): Promise<SvgService> {
+        return this.svgsService.update(id);
+    }
 }
