@@ -8,7 +8,7 @@ block scripts
 
 block content
     .ui.segment.new-svg-form
-        form.ui.form#newSvgForm(action="/api/svgs" method="POST")
+        form.ui.form#newSvgForm(action="/api/svg" method="POST")
             .field
                 label Insert your SVG code here
                 textarea(name="content" rows='2')
@@ -25,8 +25,7 @@ block content
                 each svg in likedSvgs
                     .ui.card
                         .content.svg-wrap
-                            a(href=`/svg/${svg.id}`)
-                                img(src=svg.originalUrl)
+                                | !{svg.svg}
                         .extra.content
                             a(href=`/svg/${svg.id}`)
                                 button.mini.ui.button Open
@@ -47,12 +46,12 @@ block content
         if allSvgs && allSvgs.length
             .ui.three.cards
                 each svg in allSvgs
-                    if svg.originalUrl
+                    if svg.svg
                     .ui.card
                         .content.svg-wrap
-                            img(src=svg.originalUrl)
+                            | !{svg.svg}
                         .extra.content
-                            a(href=`/svg/${svg.id}`)
+                            a(href=`/api/svgs/${svg.id}`)
                                 button.mini.ui.button Open
                             button.mini.ui.button.icon.likeSvgButton(data-id=svg.id data-like="true")
                                 i.heart.outline.icon

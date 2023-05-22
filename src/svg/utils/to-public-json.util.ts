@@ -9,6 +9,14 @@ export interface PublicSvg {
     originalUrl: string;
 }
 
+export interface GeneralSvg {
+    idToSvg: {
+        id: string
+        createdAt: string;
+        originalUrl: string;
+    };
+}
+
 export const toPublicJSON = (svg: Svg): PublicSvg => {
     if (svg.id) {
         return {

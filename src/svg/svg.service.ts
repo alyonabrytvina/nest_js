@@ -1,36 +1,68 @@
 import { Injectable } from '@nestjs/common';
-import { v4 as uuidv4 } from 'uuid';
-import * as fs from 'fs';
-import * as path from 'path';
-
-const dbFolder = path.resolve(__dirname, '../../db/');
-const svgFolder = path.resolve(dbFolder, 'svg');
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Svg, SvgDocument } from './schemas/svg.schema';
+import { CreateSvgDto } from './dto/create-svg.dto';
 
 @Injectable()
 export class SvgService {
-    private id: string;
-    private createdAt: number;
-    private originalFilename: string;
 
-    constructor() {
-        this.id = uuidv4();
-        this.createdAt = Date.now();
-        this.originalFilename = `${this.id}_original.svg`;
+    constructor(
+        @InjectModel(Svg.name)
+        private svgModel: Model<SvgDocument>,
+    ) {
     }
 
-    async saveOriginal(content) {
-        const svgPath = path.resolve(svgFolder, this.originalFilename);
+    async getAll(): Promise<any> {
+        const svgsArr = [];
+        await this.svgModel.find().exec().then(data => svgsArr.push(...data));
 
-        await fs.writeFile(svgPath, content, 'utf-8', (error) => {
-            console.error(error);
+        const allSvgs = svgsArr?.map((obj: any) => {
+            return {
+                id: obj._id.toString(),
+                svg: JSON.parse(obj.svg).content
+            };
+        });
+
+        const likedSvgs = svgsArr?.map(obj => {
+            if (obj.liked) {
+                return {
+                    id: obj._id.toString(),
+                    svg: JSON.parse(obj.svg).content
+                };
+            }
+        }).filter(svg => !!svg);
+
+        return {allSvgs, likedSvgs};
+    }
+
+    async getById(id: string): Promise<any> {
+        const svgObj = await this.svgModel.findById(id);
+
+        const svg = {
+            id: svgObj._id.toString(),
+            svg: JSON.parse(svgObj.svg).content
+        };
+
+        return {svg};
+    }
+
+    async create(svgDto: CreateSvgDto): Promise<any> {
+        await this.svgModel.create({
+            svg: JSON.stringify(svgDto),
+            liked: false,
         });
     }
 
-    async removeOriginal(svgId) {
-        const svgPath = path.resolve(svgFolder, `${svgId}_original.svg`);
+    async setLiked(id: string): Promise<any> {
+        const svg = await this.svgModel.findById(id);
 
-        await fs.unlink(svgPath, (error) => {
-            console.error(error);
+        await this.svgModel.findByIdAndUpdate(id, {
+            liked: !svg.liked,
         });
+    }
+
+    async remove(id: string): Promise<any> {
+        await this.svgModel.findByIdAndRemove(id);
     }
 }

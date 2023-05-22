@@ -1,5 +1,6 @@
 export class CreateSvgDto {
     readonly id: string;
     readonly createdAt: number;
-    readonly originalFileName: string;
+    readonly liked: boolean;
+    readonly svg: string;
 }

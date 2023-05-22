@@ -5,7 +5,7 @@ block styles
 
 block content
     .ui.large.breadcrumb
-        a.section(href="/") Gallery
+        a.section(href="/api/svgs") Gallery
         i.right.chevron.icon.divider
         .active.section= svg.id
 
@@ -14,5 +14,4 @@ block content
     .svg
         .ui.segment
             .content.svg-wrap
-                a(href=svg.originalUrl)
-                    img(src=svg.originalUrl)
+                    | !{svg.svg}

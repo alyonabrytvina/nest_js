@@ -7,14 +7,13 @@ export class AppController {
     }
 
     @Get()
-    @Render('home')
     getHome() {
-        return this.appService.getHomePage();
+        return 'this.appService.getHomePage()';
     }
 
-    @Get('svg/:id')
-    @Render('svg')
-    getSvg(@Param('id') id: string) {
-        return this.appService.getSvgPage(id);
-    }
+    // @Get('svg/:id')
+    // @Render('svg')
+    // getSvg(@Param('id') id: string) {
+    //     return this.appService.getSvgPage(id);
+    // }
 }
