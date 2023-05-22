@@ -1,9 +1,9 @@
 .container {
     margin: 0 auto;
     padding: 20px 0;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
-.ui.divider {
+.ui .divider {
     margin: 2rem 0;
 }

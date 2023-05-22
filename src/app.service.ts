@@ -1,5 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { SvgService } from './svg/svg.service';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
@@ -9,11 +8,6 @@ export class AppService {
     }
 
     async getHomePage() {
-        return 'this.svgsService.getAll()';
+        return '';
     }
-
-    // async getSvgPage(id: string): Promise<{ svg: PublicSvg }> {
-    //     const svg = await this.svgsService.getById(id);
-    //     return { svg };
-    // }
 }

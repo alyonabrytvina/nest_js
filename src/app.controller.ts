@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Render } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -7,13 +7,8 @@ export class AppController {
     }
 
     @Get()
+    @Render('greeting')
     getHome() {
-        return 'this.appService.getHomePage()';
+        return this.appService.getHomePage();
     }
-
-    // @Get('svg/:id')
-    // @Render('svg')
-    // getSvg(@Param('id') id: string) {
-    //     return this.appService.getSvgPage(id);
-    // }
 }

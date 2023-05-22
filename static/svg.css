@@ -1,8 +1,9 @@
-.ui.breadcrumb {
+.ui .breadcrumb {
     margin: 2rem 0 0;
 }
 
-svg {
-    width: 50%;
-    max-height: 200px;
+.ui .segment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

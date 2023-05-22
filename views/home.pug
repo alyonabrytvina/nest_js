@@ -27,7 +27,7 @@ block content
                         .content.svg-wrap
                                 | !{svg.svg}
                         .extra.content
-                            a(href=`/svg/${svg.id}`)
+                            a(href=`/svgs/${svg.id}`)
                                 button.mini.ui.button Open
                             button.mini.ui.button.likeSvgButton.icon(data-id=svg.id data-like="false")
                                 i.heart.icon.red
@@ -54,7 +54,10 @@ block content
                             a(href=`/api/svgs/${svg.id}`)
                                 button.mini.ui.button Open
                             button.mini.ui.button.icon.likeSvgButton(data-id=svg.id data-like="true")
-                                i.heart.outline.icon
+                                if svg.liked
+                                    i.heart.icon.red
+                                else
+                                    i.heart.outline.icon
                             button.mini.ui.button.icon.right.floated.removeSvgButton(data-id=svg.id)
                                 i.trash.icon
         else

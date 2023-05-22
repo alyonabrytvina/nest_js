@@ -4,10 +4,6 @@
     justify-content: center;
 }
 
-.svg-wrap {
-    width: 100%;
-}
-
-.ui.segment.new-svg-form {
+.ui .segment .new-svg-form {
     margin: 2rem 0;
 }

@@ -23,26 +23,25 @@ export class SvgController {
 
     @Get()
     @Render('home')
-    getAll(): Promise<any[]> {
+    getAll(): Promise<CreateSvgDto[]> {
         return this.svgsService.getAll();
     }
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @Header('Cache-Control', 'none')
-    create(@Body() createProductDto: CreateSvgDto): Promise<any> {
+    create(@Body() createProductDto: CreateSvgDto): Promise<void> {
         return this.svgsService.create(createProductDto);
     }
 
     @Get(':id')
     @Render('svg')
     getOne(@Param('id') id: string): Promise<any> {
-        console.error(id, 'id')
         return this.svgsService.getById(id);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string): Promise<SvgService> {
+    remove(@Param('id') id: string): Promise<void> {
         return this.svgsService.remove(id);
     }
 
@@ -50,7 +49,7 @@ export class SvgController {
     update(
         @Body() updateProductDto: UpdateSvgDto,
         @Param('id') id: string
-    ): Promise<SvgService> {
+    ): Promise<void> {
         return this.svgsService.setLiked(id);
     }
 }
