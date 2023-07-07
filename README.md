@@ -1,73 +1,70 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# SVG shelter
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+SVG's examples:
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+* Tree
+```shell
+<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <path
+    d="
+      M 0 -80
+      Q 5 -75 0 -70
+      Q -10 -65 0 -60
+      Q 15 -55 0 -50
+      Q -20 -45 0 -40
+      Q 25 -35 0 -30
+      Q -30 -25 0 -20
+      Q 35 -15 0 -10
+      Q -40 -5 0 0
+      Q 45 5 0 10
+      Q -50 15 0 20
+      Q 55 25 0 30
+      Q -60 35 0 40
+      Q 65 45 0 50
+      Q -70 55 0 60
+      Q 75 65 0 70
+      Q -80 75 0 80
+      Q 85 85 0 90
+      Q -90 95 0 100
+      Q 95 105 0 110
+      Q -100 115 0 120
+      L 0 140
+      L 20 140
+      L -20 140"
+    fill="none"
+    stroke="#0C5C4C"
+    stroke-width="5"
+  />
+</svg>
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+* Christmas tree
+```shell
+  <svg width="200" height="200" viewBox="-100 -100 200 200">
+    <polygon points="0,0 80,120 -80,120" fill="#234236" />
+    <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+    <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+    <rect x="-20" y="120" width="40" height="30" fill="brown" />
+  </svg>
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+* Bell
+```shell
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <g stroke="black" stroke-width="2">
+    <circle cx="0" cy="-45" r="7" fill="#4F6D7A" />
+    <circle cx="0" cy="50" r="10" fill="#F79257" />
+    <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10   
+        Q -40 40 -50 40"
+      fill="#FDEA96"
+    />
+ </g>
+</svg>
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
