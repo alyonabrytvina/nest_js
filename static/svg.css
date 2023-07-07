@@ -1,8 +1,4 @@
-.ui .breadcrumb {
-    margin: 2rem 0 0;
-}
-
-.ui .segment {
+.segment {
     display: flex;
     justify-content: center;
     align-items: center;
