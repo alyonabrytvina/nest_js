@@ -1,6 +1,7 @@
 # SVG shelter
+App for storing SVG files. Insert SVG code, save favorites, download locally, and use in your projects.
 
-SVG's examples:
+#### SVG's examples:
 
 * Tree
 ```shell
