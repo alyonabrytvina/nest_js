@@ -1,19 +1,20 @@
 extends layout
 
 block styles
-    link(rel='stylesheet' href='/home.css')
+    link(rel='stylesheet' href='/css/home.css')
 
 block scripts
-    script(src='/home.js')
+    script(src='/js/home.js')
 
 block content
     .ui.segment.new-svg-form
-        form.ui.form#newSvgForm(action="/api/svg" method="POST")
+        form.ui.form#svgForm(action="/api/svg" method="POST")
             .field
                 label Insert your SVG code here
                 textarea(name="content" rows='2')
 
             button.ui.tiny.teal.button(type="submit") Save
+    div(class='error-message')
 
     .ui.divider.divider_big
 
@@ -60,6 +61,7 @@ block content
                                     i.heart.outline.icon
                             button.mini.ui.button.icon.right.floated.removeSvgButton(data-id=svg.id)
                                 i.trash.icon
+
         else
             .ui.message
                 .header No uploaded images

@@ -4,6 +4,11 @@
     justify-content: center;
 }
 
-.ui .segment .new-svg-form {
+.new-svg-form {
     margin: 2rem 0;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.5rem;
 }

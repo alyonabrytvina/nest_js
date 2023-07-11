@@ -1,0 +1,19 @@
+.segment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-download-wrapper {
+    margin: 2rem 0 1rem 2rem;
+    color: #4183c4;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 23%;
+}
+
+.downloadSvgIcon {
+    cursor: pointer;
+}

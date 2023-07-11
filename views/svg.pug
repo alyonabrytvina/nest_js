@@ -1,7 +1,10 @@
 extends layout
 
 block styles
-    link(rel='stylesheet' href='/svg.css')
+    link(rel='stylesheet' href='/css/svg.css')
+
+    block scripts
+        script(src='/js/downloadSvg.js')
 
 block content
     .ui.large.breadcrumb
@@ -12,6 +15,11 @@ block content
     .ui.divider
 
     .svg
-        .ui.segment
-            .content.svg-wrap
+        p(class='svg-download-wrapper')
+            span Download SVG
+            button.mini.ui.button.icon.right.floated.downloadSvgIcon(data-id=svg.id)
+                i.download.icon
+        a(href)
+            .ui.segment
+                .content.svg-wrap
                     | !{svg.svg}

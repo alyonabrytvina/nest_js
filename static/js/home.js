@@ -1,16 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('newSvgForm')
+    document.getElementById('svgForm')
         .addEventListener('submit', (event) => {
             event.preventDefault();
 
-            const form = event.target;
+            function displayErrorMessage(message) {
+                const errorMessageElement = document.querySelector('.error-message');
+                errorMessageElement.textContent = message;
+            }
+
+            const svgCode = event.target.elements.content.value;
+
+            if (!svgCode) {
+                displayErrorMessage('The field cannot be empty. Please enter SVG code.');
+                return;
+            }
+
+            const svgRegex = /^<svg[\s\S]*<\/svg>$/i;
+
+            if (!svgRegex.test(svgCode)) {
+                displayErrorMessage('Invalid SVG code. Please try again.');
+                return;
+            }
 
             window
                 .axios({
                     method: 'POST',
                     url: '/api/svgs',
                     data: {
-                        content: form.elements.content.value,
+                        content: svgCode,
                     },
                 })
                 .then(() => {

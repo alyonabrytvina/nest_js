@@ -8,7 +8,7 @@ export class AppController {
 
     @Get()
     @Render('greeting')
-    getHome() {
+    getHomePage() {
         return this.appService.getHomePage();
     }
 }

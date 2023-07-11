@@ -47,15 +47,15 @@ export class SvgService {
         })
             .filter(svg => !!svg)
             .sort((a, b) => {
-            if (a.createdAt === undefined) {
-                a.createdAt = 0;
-            }
+                if (a.createdAt === undefined) {
+                    a.createdAt = 0;
+                }
 
-            if (b.createdAt === undefined) {
-                b.createdAt = 0;
-            }
-            return b.createdAt - a.createdAt;
-        });
+                if (b.createdAt === undefined) {
+                    b.createdAt = 0;
+                }
+                return b.createdAt - a.createdAt;
+            });
 
         return {
             allSvgs,
@@ -65,10 +65,9 @@ export class SvgService {
 
     async getById(id: string): Promise<any> {
         const svgRow = await this.svgModel.findById(id);
-
         const svg = toPublicSvg(svgRow);
 
-        return { svg };
+        return {svg};
     }
 
     async create(svgDto: CreateSvgDto): Promise<void> {
