@@ -17,9 +17,8 @@ block content
     .svg
         p(class='svg-download-wrapper')
             span Download SVG
-            button.mini.ui.button.icon.right.floated.downloadSvgIcon(data-id=svg.id)
+            button.mini.ui.button.icon.right.floated.downloadSvgButton(data-id=svg.id)
                 i.download.icon
-        a(href)
-            .ui.segment
-                .content.svg-wrap
-                    | !{svg.svg}
+        .ui.segment
+            .content.svg-wrap
+                | !{svg.svg}

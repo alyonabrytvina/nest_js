@@ -11,9 +11,9 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 23%;
+    width: 22%;
 }
 
-.downloadSvgIcon {
+.downloadSvgButton{
     cursor: pointer;
 }
